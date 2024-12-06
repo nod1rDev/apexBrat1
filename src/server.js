@@ -7,6 +7,10 @@ const cors = require("cors");
 const fs = require("fs");
 const path = require("path");
 
+const createDefaultAdmin = require("./utils/createAdmin");
+
+
+createDefaultAdmin();
 dotenv.config();
 
 const app = express();
@@ -39,7 +43,7 @@ mongoose
 
 // API yo'nalishlarini qo'shish
 app.use("/api/videos", videoRoutes);
-app.use("/api/users", userRoutes);
+app.use("/user", userRoutes);
 
 // Serverni ishga tushurish
 const PORT = process.env.PORT || 3000;
